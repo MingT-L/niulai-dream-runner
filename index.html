@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 移动端视口：锁定缩放，手势全部留给游戏 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>牛来·梦境奔跑 | 致敬水墨动画《牛来》</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- 3D 画布容器 -->
+  <div id="game-container"></div>
+
+  <!-- UI 覆盖层（菜单 / HUD / 暂停 / 结算，纯 HTML+CSS 水墨风） -->
+  <div id="ui-overlay">
+
+    <!-- 主菜单 -->
+    <section id="screen-menu" class="screen">
+      <div class="menu-card">
+        <h1 class="game-title">牛来<span class="dot">·</span>梦境奔跑</h1>
+        <p class="subtitle">—— 致敬水墨动画《牛来》 ——</p>
+        <button id="btn-start" class="ink-btn">入 梦 奔 跑</button>
+        <div class="controls-hint">
+          <p>← → / A D 变道　　↑ / W / 空格 跳跃　　P 暂停</p>
+          <p>移动端：左右滑动变道 · 上滑或点按跳跃</p>
+        </div>
+        <p id="best-score-menu" class="best-score"></p>
+      </div>
+    </section>
+
+    <!-- 游戏 HUD -->
+    <section id="screen-hud" class="screen hidden">
+      <div class="hud-top">
+        <div class="hud-score">分数 <span id="hud-score">0</span></div>
+        <div class="hud-feather">羽 <span id="hud-feather">0</span></div>
+        <button id="btn-pause" class="ink-btn small">暂停</button>
+      </div>
+    </section>
+
+    <!-- 暂停界面 -->
+    <section id="screen-pause" class="screen hidden">
+      <div class="menu-card">
+        <h2 class="pause-title">小 憩 片 刻</h2>
+        <button id="btn-resume" class="ink-btn">继续奔跑</button>
+        <button id="btn-restart-pause" class="ink-btn ghost">重新入梦</button>
+      </div>
+    </section>
+
+    <!-- 结算界面 -->
+    <section id="screen-gameover" class="screen hidden">
+      <div class="menu-card">
+        <h2 class="pause-title">梦 醒 了</h2>
+        <p class="final-score">本局分数 <span id="final-score">0</span></p>
+        <p class="final-detail">奔跑 <span id="final-distance">0</span> 米 · 拾羽 <span id="final-feather">0</span> 根</p>
+        <p id="new-record" class="new-record hidden">新的梦境纪录！</p>
+        <p class="best-score">最高分 <span id="best-score">0</span></p>
+        <button id="btn-restart" class="ink-btn">再入梦境</button>
+      </div>
+    </section>
+
+    <!-- 水墨晕染转场（游戏结束 / 重开时的墨团扩散） -->
+    <div id="ink-transition" class="hidden"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
